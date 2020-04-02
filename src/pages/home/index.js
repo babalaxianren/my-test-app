@@ -7,11 +7,11 @@ import ScrollIntoView from '@/components/ScrollIntoView';
 function TargetTest(props) {
     console.log('props---', props);
     return (
-        // <img
-        //     src={require("@/assets/test.png")}
-        //     alt="image loaded failed，plase retry"
-        // />
-        <div>{'scroll test'}</div>
+        <img
+            src={require("@/assets/test.png")}
+            alt="image loaded failed，plase retry"
+        />
+        // <div>{'scroll test'}</div>
     )
 }
 

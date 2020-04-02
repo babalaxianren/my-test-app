@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { isFunc } from '@/utils/utils'
 
-let count = 3;
-
 function ScrollIntoView(props) {
     const { target, getScrollEle, limitValues } = props;
     const [inView, setInView] = useState(false)
@@ -16,15 +14,13 @@ function ScrollIntoView(props) {
     const scrollListener = () => {
         let scrollTarget = isFunc(getScrollEle) ? getScrollEle() : window;
         let targetEle = document.getElementById("targetDom");
-        scrollTarget.onscroll = () => scrollHandle(targetEle);
-    }
-    // 是否进入可视区域
-    const scrollHandle = (ele) => {
-        if (!ele) return false;
-        const offset = ele.getBoundingClientRect();
-        const { top, bottom } = offset;
-        let flag = (top >= limitValues.top && bottom <= limitValues.bottom);
-        setInView(flag);
+        if (targetEle) {
+            scrollTarget.onscroll = () => {
+                const { top = 0, bottom = 0 } = targetEle.getBoundingClientRect();
+                let flag = (top > limitValues.top && top < limitValues.bottom) || (bottom < limitValues.bottom && bottom > limitValues.top);
+                setInView(flag);
+            }
+        }
     }
 
     if (!isFunc(target)) return false;

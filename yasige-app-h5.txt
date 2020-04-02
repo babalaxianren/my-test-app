@@ -1,0 +1,73 @@
+# 文档资料
+- 该文档编辑于2020.04.02 app 10.2.0版本上线后。
+
+# 前端H5项目概述
+- 页面：
+    - practice/listening    => 听力做题详情页 - 任务类型|练习类型
+    - practice/reading      => 阅读做题详情页 - 任务类型|练习类型
+    - practice/smallComposition     => 小作文页面 - VIP可看
+    - practice/bigComposition       => 大作文页面 - VIP可看
+    - practice/intensiveLis     => 听力精听页面
+    - infomation/index      => 资讯详情页面 
+    - infomation/share      => 资讯分享页
+    - rankingList       =>排行榜页面
+    - help      => 帮助与反馈
+    - home      => 关于我们
+    - course    => 公益课分享页面
+    - safeCenter    => 安全中心页面
+    - talentShow    => 
+    - userAgreement     => 
+    - userPrivacy       => 用户协议
+    - blessCard         => 新年福卡活动页
+
+# 题型相关资料
+    -【腾讯文档】雅思各种题型
+      https://docs.qq.com/doc/DUlpWU0RCcExVSm1l
+
+# H5与app交互文档
+    - 链接：【腾讯文档】雅思哥app项目H5与App 交互  
+            https://docs.qq.com/doc/DTUJiYkxtTll4YUpi
+           【腾讯文档】雅思哥app项目H5与App 交互--可编辑
+            https://docs.qq.com/doc/DTUJiYkxtTll4YUpi
+    - 备注： 文档原文件保存至coding仓库
+            yasige_app_h5项目 >> 文档管理 >> 文件网盘 
+
+# 产品原型与UI文档地址
+    - 蓝湖地址：
+     https://lanhuapp.com/web/#/item/project/board?pid=8ebffd24-5b3e-4acf-b2f9-378e2669f6a9&docId=0b82ef40-c57a-4a67-8d03-935cd6ba521a&docType=axure&pageId=762c2258455148a7ac93437fcca55bba&image_id=0b82ef40-c57a-4a67-8d03-935cd6ba521a&parentId=251e85bb-1c58-42ec-a151-201646196993&from=nav
+    - 磨刀地址：
+     https://org.modao.cc/app/koyhs2uq3iok1j0idigvdnl8rhtj7c#screen=sk1j0idmpg44fr2an
+
+# 服务接口描述文档地址
+    - 用户服务
+    http://47.112.100.85:9300/hcp/swagger-ui.html
+    - 基础服务
+    http://47.112.100.85:9100/hcp/base/swagger-ui.html
+    - 运营门户
+    http://47.112.100.85:9527/backManager/swagger-ui.html
+    - 留学服务
+    http://47.112.115.120:9500/hcp/swagger-ui.html
+    - 交易服务
+    http://47.112.115.120:9700/hcp/trade/swagger-ui.html
+    - 题库服务
+    http://47.112.115.120:9000/hcp/qsBank/swagger-ui.html
+    - 学习中心
+    http://47.112.115.120:9900/hcp/studyCenter/swagger-ui.html
+
+    备注：
+    移动端接口统一调用域名:
+    http://dev.user-center.ieltsbro.com (开发环境)
+    http://test.user-center.ieltsbro.com (测试环境)
+    http://uat.user-center.ieltsbro.com (uat环境)
+    https://hcp-server.ieltsbro.com/ (正式环境)
+
+    运营门户后台管理系统访问域名:
+    http://dev.hcp-grand-backend.ieltsbro.com
+
+# 埋点需求文档
+    【腾讯文档】雅思哥App埋点表_V3.3
+     https://docs.qq.com/sheet/DU3JJUWVqaklnTVlV?c=A1A0ID0
+
+
+
+

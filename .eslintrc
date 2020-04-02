@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "eslint-config-umi",
+    "plugin:react-hooks/recommended" //This ESLint plugin enforces the Rules of Hooks.
+  ]
+}

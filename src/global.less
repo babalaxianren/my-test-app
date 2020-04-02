@@ -1,0 +1,122 @@
+@import "./variable";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  tap-highlight-color: transparent;
+  font-smoothing: antialiased;
+  touch-callout: none;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** 设置rem ,标准设计稿中 1rem=100px */
+html {
+  font-size: 62.5%;
+  font-size: calc(100vw/3.75); // 设计稿宽度375计算，标准设计稿（iPhone6 375*667）
+  font-size: -webket-calc(100vw/3.75);
+}
+
+html,
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+  background: @themeBgColor;
+  font-family: @bodyFontFamily;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+input[type=text],
+textarea {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+img {
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+textarea,
+input,
+button {
+  outline: none;
+}
+
+button {
+  box-sizing: border-box;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}

@@ -62,7 +62,8 @@ const errorHandler = error => {
  * @param {*} url 
  */
 const urlFormat = (url) => {
-    let isCompleteUrl = url.includes('http') || url.includes('https');
+    let netAddressReg = /^(http|https|ftp)\:/gi;
+    let isCompleteUrl = netAddressReg.test(url);//url.startsWidth("http")
     return isCompleteUrl ? url : baseUrl + url;
 }
 

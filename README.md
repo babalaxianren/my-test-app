@@ -28,10 +28,10 @@
 # JS 数据类型
 - https://juejin.im/post/5cab0c45f265da2513734390
 
-# React 新生命周期 
+# React 新生命周期  ✔︎
 - https://juejin.im/post/5c947e16f265da60f41cb20c
 
-# React Hooks 
+# React Hooks  ✔︎
 - https://react.docschina.org/docs/hooks-intro.html
 
 

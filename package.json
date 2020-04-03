@@ -3,6 +3,7 @@
   "scripts": {
     "mock": "cross-env UMI_ENV=mocks umi dev",
     "start": "cross-env UMI_ENV=start umi dev",
+    "build-test": "cross-env UMI_ENV=dev umi build",
     "build-prod": "cross-env UMI_ENV=prod umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",

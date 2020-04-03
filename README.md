@@ -1,39 +1,15 @@
-# umi文档 
-- https://umijs.org/guide/getting-started.html
+# 前言
+简单的测试项目。
 
-# Chrome 工具面板使用
-- https://juejin.im/book/5c526902e51d4543805ef35e
+# 技术栈
+- react + umi + dva + less + umi-request + react-hooks
 
-# 真机调试工具 spy-debugger 
-- 参考资料: https://juejin.im/post/5c947f5251882568396a6773
-
+# 项目运行
 ```bash
-    #yarn 
-    $yarn global add spy-debugger  
-    $spy-debugger initCA  (生成证书) 初始生成证书，并启动debug页面
-    $spy-debugger  (启动)
-    $spy-debugger –p 8888  修改端口：(默认9888，移动设备添加代理)
+yarn (推荐) 或 npm i
+
+yarn mock
 ```
-- 移动设备安装证书 （/Users/node-mitmproxy/ ）
-- 把node-mitmproxy文件夹下的 node-mitmproxy.ca.crt 传到手机上，点击安装即可。
-
-# JS EventLoop 
-- https://juejin.im/post/5c947bca5188257de704121d
-
-# Promise 源码实现
-- https://juejin.im/post/5c88e427f265da2d8d6a1c84
-
-# JS 数据类型
-- https://juejin.im/post/5cab0c45f265da2513734390
-
-# React 新生命周期  
-- https://juejin.im/post/5c947e16f265da60f41cb20c
-
-# React Hooks  
-- https://react.docschina.org/docs/hooks-intro.html
-
-
-
 
 
 

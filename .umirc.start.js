@@ -10,14 +10,13 @@ export default {
     define: {
         'process.env.UMI_ENV': process.env.UMI_ENV,
         'process.env.BASE_URL': '',
-        // 'process.env.BASE_URL': 'http://test.user-center.ieltsbro.com',
     },
-    // proxy: {
-    //     '/hcp': {
-    //         target: 'http://test.user-center.ieltsbro.com',
-    //         pathRewrite: { '^/hcp': '/hcp' },
-    //         changeOrigin: true
-    //     },
-    // },
+    proxy: {
+        '/api': {
+            target: 'http://dev.xxxxx.com',
+            pathRewrite: { '^/api': '/api' },
+            changeOrigin: true
+        },
+    },
     
 }

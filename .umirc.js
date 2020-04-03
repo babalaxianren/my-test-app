@@ -4,7 +4,7 @@
 export default {
   treeShaking: true,
   exportStatic: true,
-  targets: {/** 浏览器&设备系统 版本兼容 */
+  targets: {/** 浏览器 & 设备系统 版本兼容 */
     chrome: 35, firefox: 40, safari: 10, edge: 10, ios: 10, android: 4.40
   },
   hash: true,

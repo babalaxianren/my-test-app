@@ -4,7 +4,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 export default {
     define: {
         'process.env.UMI_ENV': process.env.UMI_ENV,
-        'process.env.BASE_URL': 'http://test.user-center.ieltsbro.com',
+        'process.env.BASE_URL': 'https://xxxx.com',
     },
     chainWebpack(config, { webpack }) {
         // 增加包分析插件

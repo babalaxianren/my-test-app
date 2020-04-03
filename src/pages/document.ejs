@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <!-- 防止页面缓存 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    <title>balalaxianren</title>
+</head>
+
+<script>
+    // 三星s8的全面屏样式兼容问题----这段代码需要在body前执行
+    // 参考链接：https://www.jianshu.com/p/d5387264a9ef
+    window.rootRem = document.documentElement.offsetWidth / 3.75;
+    function compatibleStyle() {
+        document.documentElement.style.fontSize = document.documentElement.offsetWidth / 3.75 + "px";
+        let whileCount = 0;
+        let html = document.getElementsByTagName('html')[0];
+        let settedFs = parseInt(html.style.fontSize);
+        let realFs = parseInt(window.getComputedStyle(html).fontSize);
+        while (true) {
+            let delta = realFs - settedFs;
+            if (Math.abs(delta) != 0) {
+                html.setAttribute('style', 'font-size:' + settedFs * (settedFs / realFs) + 'px!important');
+                break;
+            }
+            if (whileCount++ > 100) //为了避免死循环
+                break
+        }
+        window.rootRem = parseInt(window.getComputedStyle(html).fontSize);
+    }
+    /**
+     * 在页面中使用window.rootRem代替css中rem。
+     * 鉴于Android手机机型较多，为不引起不必要的样式兼容问题，页面纵向尺寸请勿完全依赖window.rootRem，
+     * eg: a=（viewHeight-b)/winow.rootRem 。避免使用此类计算的a值
+    */
+    document.onreadystatechange = function () {
+        if (document.readyState === "complete") compatibleStyle();// 样式兼容
+    }
+</script>
+
+<body>
+    <div id="root"></div>
+</body>
+
+
+</html>

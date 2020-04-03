@@ -1,27 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { composeWrapper } from '@/components/FetchWrapper';
 import { withStorage } from '@/components/WithStorage'
 import LoadingWrapper from '@/components/LoadingWrapper'
 import ScrollIntoView from '@/components/ScrollIntoView';
+import { ThemeContext, AuthorizationContext } from '@/components/CustomContexts'
 
 function TargetTest(props) {
-    console.log('props---', props);
+    const theme = useContext(ThemeContext);
+    // console.log('props---', props,theme);
     return (
         <img
-            src={require("@/assets/test.png")}
+            src={require("@/assets/shenzhen.png")}
             alt="image loaded failed，plase retry"
         />
-        // <div>{'scroll test'}</div>
     )
+}
+class Test extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {}
+    }
+
+    render() {
+        console.log('context---', this.props);
+        return (
+            <div>
+                Test
+            </div>
+        )
+    }
 }
 
 
 class HomePage extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {}
     }
-
     static getDerivedStateFromProps(props, state) {
         return null;
     }
@@ -33,22 +48,33 @@ class HomePage extends Component {
     }
 
     render() {
-        // console.log('this.props---myComponent render', )
+        // console.log('this.props---myComponent render', this.context)
 
         return (
             <LoadingWrapper loading={this.props.loading}>
-                <div id='scrollContainer'
-                    style={{ height: 300, overflow: 'hidden', overflowY: 'auto' }}
-                    onClick={this.handleClick}>
-                    <p style={{ height: 300 }}> {'隔离副作用'} </p>
-                    <p> {this.props.title} </p>
-                    <p> {this.props.author} </p>
-                    <ScrollIntoView
-                        getScrollEle={() => document.getElementById("scrollContainer")}
-                        limitValues={{ top: 0, bottom: 300 }}
-                        target={(status) => <TargetTest status={status} />}
-                    />
-                </div>
+                <ThemeContext.Consumer>
+                    {
+                        (value) => {
+                            console.log('value---', value)
+                            return (
+                                <div id='scrollContainer'
+                                    style={{ height: 300, overflow: 'hidden', overflowY: 'auto' }}
+                                    onClick={this.handleClick}>
+                                    <p> {'隔离副作用'} </p>
+                                    <p> {this.props.title} </p>
+                                    <p> {this.props.author} </p>
+                                    <ScrollIntoView
+                                        getScrollEle={() => document.getElementById("scrollContainer")}
+                                        limitValues={{ top: 0, bottom: 300 }}
+                                        target={(status) => <TargetTest status={status} />}
+                                    />
+                                    <Test />
+                                </div>
+                            )
+                        }
+                    }
+                </ThemeContext.Consumer>
+
             </LoadingWrapper>
         )
 

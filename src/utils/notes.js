@@ -1,6 +1,6 @@
 /**
  * Infinity 是全局对象（global object）的一个属性，即它是一个全局变量。
- * Infinity 的初始值是 Number.POSITIVE_INFINITY。Infinity（正无穷大）大于任何值。该值和数学意义上的无穷大很像，例如任何正* 值乘以 Infinity 为 Infinity, 任何数值除以 Infinity 为 0。
+ * Infinity 的初始值是 Number.POSITIVE_INFINITY。Infinity（正无穷大）大于任何值。该值和数学意义上的无穷大很像，例如任* 何正值乘以 Infinity 为 Infinity, 任何数值除以 Infinity 为 0。
  * 在 ECMAScript 5 的规范中， Infinity 是只读的（实现于 JavaScript 1.8.5 / Firefox 4）。
  */
 
@@ -50,23 +50,40 @@
  */
 
 
-/** 
+/**
  * 以下是: notes
  * https://juejin.im/post/5e8153bf6fb9a03c840d509d#heading-8
  */
 
- /**
-  * webpack 学习:
-  * ref :umi webpack 拓展 => https://github.com/neutrinojs/webpack-chain
-  * 初级: https://juejin.im/post/5e6518946fb9a07c820fbaaf#heading-12
-  */
+/**
+ * webpack 学习:
+ * ref :umi webpack 拓展 => https://github.com/neutrinojs/webpack-chain
+ * 初级: https://juejin.im/post/5e6518946fb9a07c820fbaaf#heading-12
+ */
 
-  /**
-   * render
-   * React组件中必须要提供的方法。当state或者props任一数据有更新时都会执行。
-   * render() 是一个纯函数，因此，不要在其中执行setState诸如此类的操作。render必须有一个返回值，返回的数据类型可以有:
-   * 【 null、String、Number、Array、Boolean。】
-   * 【 React elements 】
-   * 【 Fragment 】
-   * 【 Portal 】
-   */
+/**
+ * render
+ * React组件中必须要提供的方法。当state或者props任一数据有更新时都会执行。
+ * render() 是一个纯函数，因此，不要在其中执行setState诸如此类的操作。render必须有一个返回值，返回的数据类型可以有:
+ * 【 null、String、Number、Array、Boolean。】
+ * 【 React elements 】
+ * 【 Fragment 】
+ * 【 Portal 】
+ */
+
+/**
+ * endsWith,startsWith
+ */
+
+/**
+ * 1.http & https 的区别，http经历了哪些层？各层都做什么？tcp/ip
+ * 2.vue和react的实现原理及二者区别，虚拟dom的优点
+ * 3.js事件机制（冒泡和捕获）
+ * 4.react生命周期
+ * 5.跨域问题 & 同源
+ * 6.性能优化的处理:https://mp.weixin.qq.com/s/FbZa_WkUHJ5yQHJjgiUwiw
+ * 7.兼容性解决办法
+ * 8.vue更新数据的实现原理
+ *
+ */
+

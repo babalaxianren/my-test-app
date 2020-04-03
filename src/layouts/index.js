@@ -1,8 +1,13 @@
+import { ThemeContext, AuthorizationContext } from '@/components/CustomContexts'
 
 function BasicLayout(props) {
   return (
     <div>
-      {props.children}
+      <ThemeContext.Provider value={{ theme: 'light' }}>
+        <AuthorizationContext.Provider value={{ isLogin: true }}>
+          {props.children}
+        </AuthorizationContext.Provider>
+      </ThemeContext.Provider>
     </div>
   );
 }

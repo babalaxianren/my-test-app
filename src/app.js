@@ -34,6 +34,6 @@ export const dva = {
  * @param {*} param1 
  */
 export function modifyRouteProps(props, { route }) {
-  // console.log(props, route)
-  return { ...props, style: 1 };
+  // console.log(props)
+  return { ...props};
 }

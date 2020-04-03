@@ -23,6 +23,7 @@ yarn build-prod （正式环境）
 ```
 # 说明
 - utls工具库
+
     utils/pay.js 
     可参考wechat-pay(JS支付和H5支付模式) & alipay 
 
@@ -33,10 +34,12 @@ yarn build-prod （正式环境）
     scroll相关滚动事件拓展
 
 - mock 
+
      mock 模拟数据可参考umi mock.
      模拟请求响应（响应延迟），参考 express 相关知识。eg：./mock/home.js
 
 - umirc.*.js (webpack配置)
+
     非线上环境跨域解决：
     请求跨域前端解决，在umirc.*.js文件中配置proxy代理，线上环境不可使用代理。
 
@@ -47,7 +50,8 @@ yarn build-prod （正式环境）
     ....后续补充
 
 - components
-    components下组件在补充中...，最终目标均为纯函数组件。
+
+    components下通用组件在补充中...，最终目标均为纯函数组件。
 
 - .env
 

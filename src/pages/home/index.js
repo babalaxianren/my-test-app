@@ -7,7 +7,8 @@ import { ThemeContext, AuthorizationContext } from '@/components/CustomContexts'
 
 function TargetTest(props) {
     const theme = useContext(ThemeContext);
-    // console.log('props---', props,theme);
+    const isLogin = useContext(AuthorizationContext)
+    console.log('props---', props, theme, isLogin);
     return (
         <img
             src={require("@/assets/shenzhen.png")}
@@ -63,17 +64,17 @@ class HomePage extends Component {
                                     <p> {'隔离副作用'} </p>
                                     <p> {this.props.title} </p>
                                     <p> {this.props.author} </p>
-                                    <ScrollIntoView
-                                        getScrollEle={() => document.getElementById("scrollContainer")}
-                                        limitValues={{ top: 0, bottom: 300 }}
-                                        target={(status) => <TargetTest status={status} />}
-                                    />
                                     <Test />
                                 </div>
                             )
                         }
                     }
                 </ThemeContext.Consumer>
+                <ScrollIntoView
+                    getScrollEle={() => document.getElementById("scrollContainer")}
+                    limitValues={{ top: 0, bottom: 300 }}
+                    target={(status) => <TargetTest status={status} />}
+                />
 
             </LoadingWrapper>
         )

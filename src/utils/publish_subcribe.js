@@ -1,53 +1,77 @@
-/** 自定义订阅-发布事件 */
-export const wyListener = {
-    list: {},
-    count: 0,
-    on(key, fn) {
-        if (!this.list[key]) {
-            this.list[key] = [];
-        }
-        this.list[key].push(fn);
-    },
-    // once(key, fn) {
-    //     let fns = this.list[key];
-    //     if (fns.includes(fn)) {
-    //         this.remove(key, fn);
-    //         return false;
-    //     }
-    //     if (!this.list[key]) {
-    //         this.list[key] = [];
-    //         this.count++;
-    //     }
-    //     this.list[key].push(fn);
-    // },
-    emit() {
-        let key = [].shift.call(arguments),
-            fns = this.list[key];
+/** 
+ * 自定义订阅-发布事件
+ * https://juejin.im/post/5b125ad3e51d450688133f22
+ * */
 
-        if (!fns || fns.length === 0) {
-            return false;
-        }
-        fns.forEach(fn => {
-            fn.apply(this, arguments);
-        });
-    },
-    remove(key, fn) {
-        // 这回我们加入了取消订阅的方法
-        let fns = this.list[key];
-        // 如果缓存列表中没有函数，返回false
-        if (!fns) return false;
-        // 如果没有传对应函数的话
-        // 就会将key值对应缓存列表中的函数都清空掉
-        if (!fn) {
-            fns && (fns.length = 0);
-        } else {
-            // 遍历缓存列表，看看传入的fn与哪个函数相同
-            // 如果相同就直接从缓存列表中删掉即可
-            fns.forEach((cb, i) => {
-                if (cb === fn) {
-                    fns.splice(i, 1);
-                }
-            });
-        }
+
+export function Panda() {
+    this._pandas = Object.create(null);
+}
+
+Panda.description=" I have a small cute cat, her name is maomao ,I'd like to share my cat baby with you ,hahhaha"
+Panda.defaultMaxListeners = 10;
+Panda._count = 0;
+Panda.prototype.addListener = Panda.prototype.on;
+
+Panda.prototype.listenerNames = function () {
+    return Object.keys(this._pandas);
+};
+
+Panda.prototype.setMaxListeners = function (n) {
+    this._count = n;
+};
+
+Panda.prototype.getMaxListeners = function () {
+    return this._count ? this._count : this.defaultMaxListeners;
+};
+
+Panda.prototype.on = function (type, cb, flag) {
+    if (this._pandas[type].length > this.getMaxListeners()) {
+        console.warn('warning :The number of listeners exceeds the limit ')
+    }
+
+    if (!this._pandas) {
+        this._pandas = Object.create(null);
+    }
+
+    if (type !== 'new_listener') {
+        this._pandas['new_listener'] && this._pandas['new_listener'].forEach(listener => listener(type));
+    }
+
+    if (this._pandas[type]) {
+        flag ? this._pandas[type].unshift(cb) : this._pandas[type].push(cb);
+    } else {
+        this._pandas[type] = [cb];
     }
 }
+
+Panda.prototype.emit = function (type, ...args) {
+    if (this._pandas[type]) {
+        this._pandas[type].forEach(listener => {
+            listener.call(this, ...args);
+        });
+    }
+};
+
+Panda.prototype.removeListener = function (type, cb) {
+    if (this._events[type]) {
+        this._events[type] = this._events[type].filter(listener => {
+            return cb !== listener && cb !== listener.listen;
+        });
+    }
+};
+
+
+Panda.prototype.once = function (type, cb, flag) {
+    function wrap() {
+        cb(...arguments);
+        this.removeListener(type, wrap);
+    }
+    // 自定义属性
+    wrap.listen = cb;
+    this.on(type, wrap, flag);
+};
+
+
+
+

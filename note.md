@@ -106,7 +106,132 @@
     复制算法就是只把某个空间的活动对象复制到其他空间。
     将一个内存空间分为两部分，一部分是From空间，另一部分是To空间，将From空间里面的活动对象复制到To空间，然后释放掉整个From空间，然后此刻将From空间和To空间的身份互换，那么就完成了一次GC。
 
+
+# PropTypes校验器
+-   MyComponent.propTypes = {
+
+-       *** 你可以将属性声明为以下 JS 原生类型  .isRequired标记必传的参数  *** 
+            requiredArray: PropTypes.array.isRequired,
+            optionalArray: PropTypes.array,
+            optionalBool: PropTypes.bool,
+            optionalFunc: PropTypes.func,
+            optionalNumber: PropTypes.number,
+            optionalObject: PropTypes.object,
+            optionalString: PropTypes.string,
+            optionalSymbol: PropTypes.symbol,
+
+-       *** 任何可被渲染的元素（包括数字、字符串、子元素或数组） ***
+            optionalNode: PropTypes.node,
+
+-       *** 一个 React 元素***
+            optionalElement: PropTypes.element,
+
+-       *** 你也可以声明属性为某个类的实例，这里使用 JS 的instanceof 操作符实现。 
+            optionalMessage: PropTypes.instanceOf(Message),
+
+-       *** 你也可以限制你的属性值是某个特定值之一 ***
+            optionalEnum: PropTypes.oneOf(['News', 'Photos']),
+
+-       *** 限制它为列举类型之一的对象 ***
+            optionalUnion: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+                PropTypes.instanceOf(Message)
+            ]),
+
+-       *** 一个指定元素类型的数组 ***
+            optionalArrayOf: PropTypes.arrayOf(PropTypes.number),
+
+-       *** 一个指定类型的对象 ***
+            optionalObjectOf: PropTypes.objectOf(PropTypes.number),
+
+-       *** 一个指定属性及其类型的对象 ***
+            optionalObjectWithShape: PropTypes.shape({
+                color: PropTypes.string,
+                fontSize: PropTypes.number
+            }),
+
+-       *** 你也可以在任何 PropTypes 属性后面加上 `isRequired` 后缀，这样如果这个属性父组件没有提供时，会打印警告信息 ***
+            requiredFunc: PropTypes.func.isRequired,
+
+-       *** 任意类型的数据 ***
+            requiredAny: PropTypes.any.isRequired,
+
+-       *** 
+            自定义验证器。它应该在验证失败时返回一个 Error 对象而不是 `console.warn` 或抛出异常。
+            不过在 `oneOfType` 中它不起作用。 
+        ***
+            customProp: function(props, propName, componentName) {
+                if (!/matchme/.test(props[propName])) {
+                return new Error(
+                    'Invalid prop `' + propName + '` supplied to' +
+                    ' `' + componentName + '`. Validation failed.'
+                );
+                }
+            },
+
+-       *** 
+            不过你可以提供一个自定义的 `arrayOf` 或 `objectOf` 验证器，它应该在验证失败时返回一个 Error 对象。
+            它被用于验证数组或对象的每个值。验证器前两个参数的第一个是数组或对象本身，第二个是它们对应的键。 
+        ***
+        customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+            if (!/matchme/.test(propValue[key])) {
+            return new Error(
+                'Invalid prop `' + propFullName + '` supplied to' +
+                ' `' + componentName + '`. Validation failed.'
+            );
+            }
+        })
+    };
+
 # JS事件机制（冒泡和捕获）
+
+
+# 同源/跨域问题 & 常见跨域问题的解决方案
+- http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+- https://juejin.im/post/5aaa44e2f265da2373142e27
+
+- 同源的概念：协议/域名/端口 三者必须相同。同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据（包括cookie共享等）。
+
+- 同源策略下非同源网站的，会受到如下限制：
+- （1） Cookie、LocalStorage 和 IndexDB 无法读取。
+- （2） DOM 无法获得。
+- （3） AJAX 请求不能发送。
+
+- 如何在必要的时候规避同源策略的限制？
+-   1.cookie
+    http://www.aaa.com/a.html & http://www.aaa.com/b.html 两个网页一级域名相同，二级域名不同，此时解决cookie同源限制的方法有：
+        (1).两个网页下分别设置 document.domain = 'aaa.com';
+        (2).Set-Cookie: key=value; domain=.example.com; path=/   设置cookie时，指定域名，这样同域名下网站cookie可以共享。
+    注：此方法仅适用于Cookie 和 iframe 窗口，localstorage和indexDB无法通过此种办法规避同源限制。
+
+-   2.iframe
+    如果两个网页不同源，就无法拿到对方的DOM。典型的例子是iframe窗口和window.open方法打开的窗口，它们与父窗口无法通信。
+
+    解决完全不同源的窗口的通信问题
+        (1).片段识别符（fragment identifier）
+        (2).window.name
+        (3).跨文档通信API（Cross-document messaging）
+        ...................
+
+
+# 发布订阅模式
+- 当一个对象的状态发送改变时，所有依赖于它的对象都将得到状态改变的通知，eg:emit on
+- 作用：
+        * 广泛应用于异步编程中(替代了传递回调函数)
+        * 对象之间松散耦合的编写代码
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -15,6 +15,7 @@
     "cross-env": "^7.0.2",
     "dva": "^2.6.0-beta.6",
     "dva-logger": "^1.0.0",
+    "fontmin": "^0.9.8",
     "from": "^0.1.7",
     "import": "^0.0.6",
     "lodash": "^4.17.15",

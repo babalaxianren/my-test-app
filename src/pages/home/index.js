@@ -8,7 +8,7 @@ import { ThemeContext, AuthorizationContext } from '@/components/CustomContexts'
 function TargetTest(props) {
     const theme = useContext(ThemeContext);
     const isLogin = useContext(AuthorizationContext)
-    console.log('props---', props, theme, isLogin);
+    // console.log('props---', props, theme, isLogin);
     return (
         <img
             src={require("@/assets/shenzhen.png")}
@@ -23,7 +23,7 @@ class Test extends Component {
     }
 
     render() {
-        console.log('context---', this.props);
+        // console.log('context---', this.props);
         return (
             <div>
                 Test
@@ -56,7 +56,7 @@ class HomePage extends Component {
                 <ThemeContext.Consumer>
                     {
                         (value) => {
-                            console.log('value---', value)
+                            // console.log('value---', value)
                             return (
                                 <div id='scrollContainer'
                                     style={{ height: 300, overflow: 'hidden', overflowY: 'auto' }}
@@ -78,7 +78,6 @@ class HomePage extends Component {
 
             </LoadingWrapper>
         )
-
     }
 }
 

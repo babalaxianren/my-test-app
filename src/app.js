@@ -10,8 +10,9 @@
  */
 
 import { scrollPolyfill } from '@/utils/scrollPolyfill';
+import TalkFun from '@/utils/talkFun'
 scrollPolyfill();
-
+new TalkFun();
 /**
  * 创建应用，返回 dva 实例。(注：dva 支持多实例)
  * https://dvajs.com/api/#app-dva-opts
@@ -35,5 +36,5 @@ export const dva = {
  */
 export function modifyRouteProps(props, { route }) {
   // console.log(props)
-  return { ...props};
+  return { ...props };
 }

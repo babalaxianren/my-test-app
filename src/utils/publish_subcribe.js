@@ -4,11 +4,11 @@
  * */
 
 
-export function Panda() {
+export default function Panda() {
     this._pandas = Object.create(null);
 }
 
-Panda.description=" I have a small cute cat, her name is maomao ,I'd like to share my cat baby with you ,hahhaha"
+Panda.description = " I have a small cute cat, her name is maomao ,I'd like to share my cat baby with you ,hahhaha"
 Panda.defaultMaxListeners = 10;
 Panda._count = 0;
 Panda.prototype.addListener = Panda.prototype.on;

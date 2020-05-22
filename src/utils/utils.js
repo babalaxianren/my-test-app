@@ -112,17 +112,36 @@ export const debounce = (fn, delay) => {
 /**
  * 节流 - throttle 当持续触发事件时，保证一定时间段内只调用一次事件处理函数。
  */
-export const throttle = (fn, delay = 500) => {
-    let flag = true;
-    return (...args) => {
-        if (!flag) return;
-        flag = false;
-        setTimeout(() => {
-            fn.apply(this, args);
-            flag = true;
+// export const throttle = (fn, delay = 500) => {
+//     let flag = true;
+//     return (...args) => {
+//         if (!flag) return;
+//         flag = false;
+//         setTimeout(() => {
+//             fn.apply(this, args);
+//             flag = true;
+//         }, delay);
+//     };
+// };
+
+export function throttle(fn, delay) {
+    let last = 0, timer = null;
+    return function (...args) {
+      let context = this;
+      let now = new Date();
+      if(now - last > delay){
+        clearTimeout(timer);
+        setTimeout(function() {
+          last = now;
+          fn.apply(context, args);
         }, delay);
-    };
-};
+      } else {
+        // 这个时候表示时间到了，必须给响应
+        last = now;
+        fn.apply(context, args);
+      }
+    }
+  }
 
 
 
